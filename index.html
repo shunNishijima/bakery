@@ -5,36 +5,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bakery Soleil</title>
   <style>
+    /* 基本スタイル */
     body {
       margin: 0;
       font-family: 'Hiragino Mincho ProN', serif;
       background-color: #fdf8f4;
       color: #333;
     }
+
     header {
       background-color: #f5e6d3;
       padding: 10px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
+
     nav a {
       margin-left: 15px;
       text-decoration: none;
       color: #333;
       font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #a85c3b;
     }
 
     .hero {
-      background-image: url('https://source.unsplash.com/1200x500/?bakery');
+      background-image: url('https://images.unsplash.com/photo-1602016752325-269ff7f9d650?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200');
       background-size: cover;
       background-position: center;
       color: white;
       text-align: center;
-      padding: 80px 20px;
+      padding: 100px 20px;
+      animation: fadeIn 1.5s ease-out;
     }
+
     .hero h2 {
       margin: 0 0 10px;
+      font-size: 2.5rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+      animation: slideUp 1.5s ease-out;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+      animation: slideUp 2s ease-out;
     }
 
     .container {
@@ -50,15 +72,63 @@
       justify-content: center;
     }
 
+    .product {
+      width: 250px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s forwards;
+    }
+
+    .product:nth-child(1) { animation-delay: 0.2s; }
+    .product:nth-child(2) { animation-delay: 0.4s; }
+    .product:nth-child(3) { animation-delay: 0.6s; }
+    .product:nth-child(4) { animation-delay: 0.8s; }
+    .product:nth-child(5) { animation-delay: 1s; }
+
+    .product img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .map {
+      width: 100%;
+      height: 400px;
+      margin-top: 20px;
+    }
+
+    .map iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
     footer {
       background-color: #f5e6d3;
       text-align: center;
       padding: 15px;
       margin-top: 40px;
     }
+
+    /* アニメーション定義 */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
+
   <header>
     <h1>Bakery Soleil</h1>
     <nav>
@@ -77,27 +147,27 @@
     <h2>おすすめ商品</h2>
     <div class="product-list">
       <div class="product">
-        <img src="https://source.unsplash.com/300x200/?bread" alt="天然酵母バゲット">
+        <img src="https://images.unsplash.com/photo-1602016752325-269ff7f9d650?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="天然酵母バゲット">
         <h3>天然酵母バゲット</h3>
         <p>外はカリッと、中はふんわり。</p>
       </div>
       <div class="product">
-        <img src="https://source.unsplash.com/300x200/?croissant" alt="バタークロワッサン">
+        <img src="https://images.unsplash.com/photo-1590080876715-3c50a5b2b804?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="バタークロワッサン">
         <h3>バタークロワッサン</h3>
         <p>芳醇なバター香るサクサク食感。</p>
       </div>
       <div class="product">
-        <img src="https://source.unsplash.com/300x200/?bread-roll" alt="くるみパン">
+        <img src="https://images.unsplash.com/photo-1604754742620-67f1d7d9d6d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="くるみパン">
         <h3>くるみパン</h3>
         <p>香ばしいくるみがたっぷり。</p>
       </div>
       <div class="product">
-        <img src="https://source.unsplash.com/300x200/?pastry" alt="チョコデニッシュ">
+        <img src="https://images.unsplash.com/photo-1611843739468-8fa9e9a6b142?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="チョコデニッシュ">
         <h3>チョコデニッシュ</h3>
         <p>とろけるチョコとサクサク生地。</p>
       </div>
       <div class="product">
-        <img src="https://source.unsplash.com/300x200/?bagel" alt="プレーンベーグル">
+        <img src="https://images.unsplash.com/photo-1617196031586-2c51e7a79e1a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="プレーンベーグル">
         <h3>プレーンベーグル</h3>
         <p>もっちり食感がクセになる。</p>
       </div>
@@ -119,5 +189,6 @@
   <footer id="contact">
     <p>© 2025 Bakery Soleil</p>
   </footer>
+
 </body>
 </html>
