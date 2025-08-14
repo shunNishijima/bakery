@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bakery Soleil</title>
+  <style>
+    /* Reset & Base */
+    body {
+      margin: 0;
+      font-family: 'Hiragino Mincho ProN', serif;
+      background-color: #fdf8f4;
+      color: #333;
+    }
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      margin: auto;
+    }
+    header {
+      background-color: #f5e6d3;
+      padding: 10px 0;
+    }
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      font-size: 1.5rem;
+    }
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #8b5e3c;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      background-image: url('https://source.unsplash.com/1200x500/?bakery');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 100px 20px;
+      text-align: center;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+    }
+    .hero-text {
+      position: relative;
+      z-index: 1;
+    }
+    .hero h2 {
+      font-size: 2rem;
+    }
+
+    /* Products */
+    .products h2, .shop-info h2 {
+      text-align: center;
+      margin-top: 50px;
+      margin-bottom: 30px;
+    }
+    .product-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .product img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    /* Shop info */
+    .shop-info .map iframe {
+      width: 100%;
+      min-height: 300px;
+      display: block;
+      border: 0;
+    }
+    .shop-info .map {
+      margin-top: 20px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #f5e6d3;
+      text-align: center;
+      padding: 15px;
+      margin-top: 50px;
+    }
+
+    /* Fade-in effect */
+    .fade-in {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.8s ease;
+    }
+    .product, .shop-info {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Bakery Soleil</h1>
+      <nav>
+        <a href="#products">商品紹介</a>
+        <a href="#shop-info">店舗情報</a>
+        <a href="#contact">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h2>毎日焼きたて、心温まるパンを</h2>
+      <p>地元の小麦と天然酵母で作るこだわりのパン</p>
+    </div>
+  </section>
+
+  <section id="products" class="products container">
+    <h2>おすすめ商品</h2>
+    <div class="product-list">
+      <div class="product">
+        <img src="https://source.unsplash.com/300x200/?bread" alt="天然酵母バゲット">
+        <h3>天然酵母バゲット</h3>
+        <p>外はカリッと、中はふんわり。</p>
+      </div>
+      <div class="product">
+        <img src="https://source.unsplash.com/300x200/?croissant" alt="バタークロワッサン">
+        <h3>バタークロワッサン</h3>
+        <p>芳醇なバター香るサクサク食感。</p>
+      </div>
+      <div class="product">
+        <img src="https://source.unsplash.com/300x200/?bread-roll" alt="くるみパン">
+        <h3>くるみパン</h3>
+        <p>香ばしいくるみがたっぷり。</p>
+      </div>
+      <!-- ダミー商品 -->
+      <div class="product">
+        <img src="https://source.unsplash.com/300x200/?pastry" alt="チョコデニッシュ">
+        <h3>チョコデニッシュ</h3>
+        <p>とろけるチョコとサクサク生地。</p>
+      </div>
+      <div class="product">
+        <img src="https://source.unsplash.com/300x200/?bagel" alt="プレーンベーグル">
+        <h3>プレーンベーグル</h3>
+        <p>もっちり食感がクセになる。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="shop-info" class="shop-info container">
+    <h2>店舗情報</h2>
+    <p>住所：東京都〇〇区〇〇 1-2-3</p>
+    <p>営業時間：8:00〜18:00（火曜定休）</p>
+    <div class="map">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.8162067603386!2d139.7087216152584!3d35.66459548019814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188caea3c5f19b%3A0x2bcdafaf8f2a0dd8!2z5p2x5Lqs6YO95rSl5a2m5Z-O!5e0!3m2!1sja!2sjp!4v1699999999999"
+        allowfullscreen="" loading="lazy">
+      </iframe>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <p>© 2025 Bakery Soleil</p>
+  </footer>
+
+  <script>
+    // スムーススクロール
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // フェードイン
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+        }
+      });
+    });
+    document.querySelectorAll('.product, .shop-info').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
